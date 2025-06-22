@@ -6,6 +6,7 @@
 
 - Learned how to write `boot.asm` to display "Hello World" in real mode.
 - Studied the basics of registers and common assembly instructions.
+- testing
 
 ### Key Learnings
 
