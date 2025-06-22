@@ -1,6 +1,6 @@
-# 🧵 my-os-kernel – A Learning-Based Multithreaded Kernel Project
+# 🧵 OS_kernel – A Learning-Based Multithreaded Kernel Project
 
-This repository contains `my-os-kernel`, a **learning-oriented reimplementation** of a multitasking operating system kernel, based on the [PeachOS](https://github.com/nibblebits/PeachOS) project by nibblebits.
+This repository contains `OS_kernel`, a **learning-oriented reimplementation** of a multitasking operating system kernel, based on the [PeachOS](https://github.com/nibblebits/PeachOS) project by nibblebits.
 
 The primary goal is to **deeply understand operating system internals** by rebuilding a similar kernel from scratch, covering topics like bootloading, protected mode, memory management, multitasking, and more.
 
