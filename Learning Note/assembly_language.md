@@ -4,14 +4,48 @@ This document summarizes key registers, instructions, and essential concepts use
 
 ---
 
-## 🧠 Registers
+## 🧠 General Registers
 
-| Register | Size         | Description                                                                                                                                     |
-| -------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| `AH`     | 8-bit (high) | The high byte of the 16-bit AX register. Often used to store function numbers for BIOS or DOS interrupts.                                       |
-| `AL`     | 8-bit (low)  | The low byte of the AX register. Commonly used to hold data, such as characters to print.                                                       |
-| `AX`     | 16-bit       | A general-purpose register made up of AH and AL. Often used as an accumulator.                                                                  |
-| `SI`     | 16-bit       | Source Index register. Commonly used to point to a memory location (e.g., for string or array operations). Used with instructions like `lodsb`. |
+| Register | Size         | Description                                                                                                 |
+| -------- | ------------ | ----------------------------------------------------------------------------------------------------------- |
+| `AH`     | 8-bit (high) | The high byte of the 16-bit AX register. Often used to store function numbers for BIOS or DOS interrupts.   |
+| `AL`     | 8-bit (low)  | The low byte of the AX register. Commonly used to hold data, such as characters to print.                   |
+| `AX`     | 16-bit       | A general-purpose register made up of AH and AL. Often used as an accumulator.                              |
+| `BH`     | 8-bit (high) | The high byte of the 16-bit BX register.                                                                    |
+| `BL`     | 8-bit (low)  | The low byte of the BX register.                                                                            |
+| `BX`     | 16-bit       | Base register, often used for addressing memory.                                                            |
+| `CH`     | 8-bit (high) | The high byte of the 16-bit CX register.                                                                    |
+| `CL`     | 8-bit (low)  | The low byte of the CX register.                                                                            |
+| `CX`     | 16-bit       | Count register, commonly used for loop counters and string operations.                                      |
+| `DH`     | 8-bit (high) | The high byte of the 16-bit DX register.                                                                    |
+| `DL`     | 8-bit (low)  | The low byte of the DX register.                                                                            |
+| `DX`     | 16-bit       | Data register, used in I/O operations and multiplication/division.                                          |
+| `SI`     | 16-bit       | Source Index register. Points to memory for string operations like `LODSB`.                                 |
+| `DI`     | 16-bit       | Destination Index register. Used in string operations like `STOSB`.                                         |
+| `SP`     | 16-bit       | Stack Pointer. Points to the top of the stack. Works with `SS`.                                             |
+| `BP`     | 16-bit       | Base Pointer. Used to access function parameters and local variables on the stack.                          |
+| `IP`     | 16-bit       | Instruction Pointer. Points to the offset of the next instruction within the code segment. Works with `CS`. |
+
+---
+
+## 🧱 Segment Registers
+
+| Segment Register | Size   | Description                                                                                                                                                         | Paired With            |
+| ---------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------- |
+| `CS`             | 16-bit | Code Segment. Specifies the memory segment where the currently executing instructions (code) are located. Determines where the CPU fetches instructions to execute. | `IP`                   |
+| `DS`             | 16-bit | Data Segment. Default segment for most data (variables, arrays). Most data reads and writes use this segment unless overridden.                                     | `SI`, `BX`, `AX`, etc. |
+| `SS`             | 16-bit | Stack Segment. Specifies the memory segment used for the stack (function calls, returns, temporary storage, PUSH/POP operations).                                   | `SP`, `BP`             |
+| `ES`             | 16-bit | Extra Segment. Used as an additional data segment, often as the destination in string and memory operations (e.g., moving data from `DS:SI` to `ES:DI`).            | `DI`                   |
+
+---
+
+## 🧮 How Physical Memory Addresses Are Calculated
+
+In the 8086 processor, physical memory addresses are calculated using **segment:offset addressing**. Since all registers are 16-bit (maximum value = 0xFFFF), but the processor can access up to **1MB** of memory, it uses the following formula:
+
+`Physical Address = (Segment × 16) + Offset`
+
+This effectively allows 20-bit physical addressing using two 16-bit values.
 
 ---
 
