@@ -44,7 +44,7 @@ While the code is written independently, much of the architecture and implementa
 
 ---
 
-## 🔗 Project Reference
+## Project Reference
 
 This project is based on and heavily inspired by:  
 **[PeachOS by nibblebits](https://github.com/nibblebits/PeachOS)**  
