@@ -1,4 +1,4 @@
-# 🧵 OS_kernel – A Learning-Based Multithreaded Kernel Project
+# OS_kernel – A Learning-Based Multithreaded Kernel Project
 
 This repository contains `OS_kernel`, a **learning-oriented reimplementation** of a multitasking operating system kernel, based on the [PeachOS](https://github.com/nibblebits/PeachOS) project by nibblebits.
 
@@ -6,7 +6,7 @@ The primary goal is to **deeply understand operating system internals** by rebui
 
 ---
 
-## 🎯 Project Objectives
+##  Project Objectives
 
 - Learn the low-level structure of an operating system kernel
 - Gain hands-on experience in **x86 architecture**, **real/protected mode**, and **task scheduling**
@@ -15,14 +15,14 @@ The primary goal is to **deeply understand operating system internals** by rebui
 
 ---
 
-## 📦 What's Implemented
+##  What's Implemented
 
-### 🧭 Real Mode Bootloader
+### Real Mode Bootloader
 - Writing a custom bootloader in assembly
 - Setting up segment registers
 - Reading disk sectors using BIOS interrupts
 
-### 🔐 Protected Mode Kernel
+###  Protected Mode Kernel
 - Entering 32-bit protected mode using GDT
 - Interrupt Descriptor Table (IDT) setup
 - Paging and virtual memory
@@ -30,13 +30,13 @@ The primary goal is to **deeply understand operating system internals** by rebui
 - ELF file loading and process spawning
 - Cooperative multitasking and context switching
 
-### ⌨️ Devices and Drivers
+###  Devices and Drivers
 - PS/2 Keyboard input handling
 - Simple terminal interface
 
 ---
 
-## 📚 Educational Focus
+##  Educational Focus
 
 > This is a **self-study project**, aiming to **recreate** core elements of the [PeachOS](https://github.com/nibblebits/PeachOS) kernel in order to understand how operating systems work from the ground up.
 
