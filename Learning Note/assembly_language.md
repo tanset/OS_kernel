@@ -1,10 +1,10 @@
-# 📘 8086 Assembly Language Quick Reference
+# 8086 Assembly Language Quick Reference
 
 This document summarizes key registers, instructions, and essential concepts used in 8086 assembly programming, with a focus on real-mode applications like displaying "Hello World".
 
 ---
 
-## 🧠 General Registers
+## General Registers
 
 | Register | Size         | Description                                                                                                 |
 | -------- | ------------ | ----------------------------------------------------------------------------------------------------------- |
@@ -28,7 +28,7 @@ This document summarizes key registers, instructions, and essential concepts use
 
 ---
 
-## 🧱 Segment Registers
+## Segment Registers
 
 | Segment Register | Size   | Description                                                                                                                                                         | Paired With            |
 | ---------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------- |
@@ -39,7 +39,7 @@ This document summarizes key registers, instructions, and essential concepts use
 
 ---
 
-## 🧮 How Physical Memory Addresses Are Calculated
+## How Physical Memory Addresses Are Calculated
 
 In the 8086 processor, physical memory addresses are calculated using **segment:offset addressing**. Since all registers are 16-bit (maximum value = 0xFFFF), but the processor can access up to **1MB** of memory, it uses the following formula:
 
@@ -64,29 +64,29 @@ This effectively allows 20-bit physical addressing using two 16-bit values.
 
 ---
 
-## 🔍 Concepts to Understand
+## Concepts to Understand
 
-### ✅ Memory Layout
+### Memory Layout
 
 - `.COM` files are loaded at `0x100` in memory.
 - Execution starts from `org 100h`, ensuring correct offsets for jumps and data.
 
-### ✅ Data Declarations
+### Data Declarations
 
 - `db 'Hello World!', 0` stores the string in memory.
 - `0` at the end is a null terminator used to indicate the end of the string.
 
-### ✅ Execution Flow
+### Execution Flow
 
 - The CPU reads and executes instructions linearly.
 - You must use `jmp` to skip over data sections like the string, otherwise it will interpret data as code and crash.
 
-### ✅ BIOS Interrupts
+### BIOS Interrupts
 
 - `int 10h` with `AH = 0Eh` prints a character from `AL` to the screen.
 - BIOS provides low-level hardware access while in real mode.
 
-### ✅ Printing a String
+### Printing a String
 
 - Use `SI` to point to the beginning of the string.
 - Use `lodsb` to load each character and automatically advance the pointer.
@@ -95,7 +95,7 @@ This effectively allows 20-bit physical addressing using two 16-bit values.
 
 ---
 
-## 🧪 Example Code Recap
+## Example Code Recap
 
 ```asm
 org 100h
